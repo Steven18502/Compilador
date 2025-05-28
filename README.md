@@ -9,6 +9,8 @@ Direccion de los archivos dentro de LLVM
 Para compilar e incluir riscv_vector.h usar preferiblemente direcciones completas
 Para compilar -->  llvm-project/build/bin/clang --target=riscv32  -march=rv32gcv -O1  convSIMD.c -S -o convSIMDt.s
 --targer indica la arquitectura objetivo (puede ser tambien riscv64), -march indica extensiones para riscv (gcv incluye las estandar y la vectorial), -O1 es el nivel de optimizacion (desde -O0 a -O3)
+Tener cuidado al usar optimizaciones ya que depende de que se esté haciendo el compilador puede eliminar lineas por dead code elimination o incluso no generar nada porque elimina todo en el proceso
+
 
 El archivo TestIntrinsics.c tiene un llamado a cada Intrinsic y de como se hacen los loads y stores de RVV para int32, y como definir el valor de vl (vector length)
 En convolucion hay un ejemplo de lo que se hacia en el HLS con los instrinsiscs (convSIMD)
